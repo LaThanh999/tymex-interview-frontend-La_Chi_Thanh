@@ -1,0 +1,10 @@
+.ant-btn {
+  > span {
+    font-weight: 600;
+  }
+
+  &-primary {
+    background: var(--primary-bg) !important;
+    box-shadow: 0 0 50px 0 #bb4bff52;
+  }
+}

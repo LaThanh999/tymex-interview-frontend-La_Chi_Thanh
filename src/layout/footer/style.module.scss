@@ -1,0 +1,48 @@
+@import "../../styles/mixins";
+
+.footer-container {
+  background-color: #17161a !important;
+  padding: 60px 0 120px !important;
+
+  &-inner {
+    @include container;
+  }
+
+  :global {
+    h4 {
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      font-family: var(--heading-font);
+    }
+
+    span.ant-typography {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    a span.ant-typography:hover {
+      text-decoration: underline;
+    }
+
+    .ant-divider {
+      border-block-start-color: #3a3841;
+      margin: 60px 0 40px;
+    }
+
+    .ant-btn-primary {
+      width: 168px;
+    }
+
+    .ant-input {
+      background: #17161a;
+
+      &:hover {
+        background: #17161a;
+      }
+
+      &:active {
+        background: #17161a;
+      }
+    }
+  }
+}
