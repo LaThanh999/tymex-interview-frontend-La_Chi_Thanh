@@ -1,0 +1,27 @@
+.mobile-navigation-container {
+  :global {
+    .ant-drawer-content {
+      background: #011529 !important;
+
+      .ant-drawer-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 16px 32px;
+      }
+
+      .ant-drawer-header {
+        padding: 16px 32px;
+      }
+
+      .ant-drawer-close {
+        margin: 0;
+        color: #fff;
+      }
+    }
+
+    .ant-menu-item {
+      padding: 0;
+    }
+  }
+}
