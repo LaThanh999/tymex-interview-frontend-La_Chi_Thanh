@@ -3,7 +3,7 @@
 .container-header {
   height: var(--header-height) !important;
   line-height: var(--header-height) !important;
-  padding: 0;
+  padding: 0 !important;
   background-color: #17161ab2;
   z-index: 1;
 

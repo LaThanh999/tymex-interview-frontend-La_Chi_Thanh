@@ -69,7 +69,7 @@ export const FooterLayout = () => (
           </Flex>
         </Col>
         <Col xl={10} xs={24}>
-          <Typography.Title level={4}>
+          <Typography.Title level={4}  >
             Subcribe to receive our latest update
           </Typography.Title>
           <Flex gap={20}>

@@ -1,0 +1,138 @@
+@import "../../../styles//variables.scss";
+
+.banner-section-container {
+  height: 720px;
+  width: 100%;
+  position: relative;
+
+  @media (max-width: $breakpoint-lg) {
+    height: 480px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    height: 420px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    height: 220px;
+  }
+}
+
+.bg-banner-section,
+.item_new_arrival,
+.list-item-banner-section,
+.item-banner-section,
+.bg-text-the-DJ,
+.text-the-DJ {
+  position: absolute;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.bg-banner-section {
+  inset: 0;
+}
+
+.item_new_arrival {
+  width: 980px;
+  height: 292px;
+  bottom: 50%;
+  transform: translateY(50%);
+  left: 50%;
+  transform: translateX(-50%);
+
+  @media (max-width: $breakpoint-lg) {
+    width: 580px;
+    height: 184px;
+    transform: translateX(-60%);
+  }
+
+  @media (max-width: $breakpoint-md) {
+    width: 480px;
+    height: 184px;
+    bottom: 40%;
+    transform: translateX(-60%);
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 220px;
+    height: 84px;
+    transform: translateX(-60%);
+  }
+}
+
+.list-item-banner-section {
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.item-banner-section-container {
+  position: absolute;
+  width: 400px;
+  height: 605px;
+  bottom: 0;
+  right: 40px;
+
+  @media (max-width: $breakpoint-lg) {
+    width: 288px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    width: 188px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 108px;
+  }
+}
+
+.item-banner-section-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.item-banner-section {
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.bg-text-the-DJ {
+  bottom: 10px;
+  left: 0;
+  right: 0;
+}
+
+.text-the-DJ-container {
+  width: 228px;
+  height: 44px;
+  position: absolute;
+  bottom: 75px;
+  right: 120px;
+
+  @media (max-width: $breakpoint-lg) {
+    width: 140px;
+    height: 24px;
+    bottom: 60px;
+    right: 100px;
+  }
+
+  @media (max-width: $breakpoint-md) {
+    width: 98px;
+    height: 24px;
+    bottom: 35px;
+    right: 60px;
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    width: 48px;
+    height: 12px;
+    bottom: 25px;
+    right: 40px;
+  }
+}

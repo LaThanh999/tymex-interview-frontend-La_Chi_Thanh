@@ -4,6 +4,10 @@
   background-color: #17161a !important;
   padding: 60px 0 120px !important;
 
+  @media (max-width: 992px) {
+    padding: 40px 0 60px !important;
+  }
+
   &-inner {
     @include container;
   }
@@ -13,6 +17,14 @@
       text-transform: uppercase;
       margin-bottom: 32px;
       font-family: var(--heading-font);
+
+      @media (max-width: 992px) {
+        font-size: 20px !important;
+      }
+
+      @media (max-width: 576px) {
+        font-size: 18px !important;
+      }
     }
 
     span.ant-typography {
