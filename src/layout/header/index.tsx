@@ -1,9 +1,11 @@
-import { Layout } from "antd";
+import { Flex, Layout } from "antd";
 import { Button } from "@/components/Button";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { MobileNavigation } from "./MobileNavigation";
 import { NavigationMenu } from "./NavigationMenu";
 import styles from "./style.module.scss";
+import { IGlobe } from "@/icons/IGlobe";
+import { ICaretDown } from "@/icons/ICaretDown";
 
 export const HeaderLayout = () => {
   const { isCollapsed } = useBreakpoint();
@@ -16,6 +18,10 @@ export const HeaderLayout = () => {
         <Button type="primary" size="large">
           Connect Wallet
         </Button>
+        <Flex className={styles["region-menu"]} align="center" gap={8}>
+          <IGlobe />
+          <ICaretDown />
+        </Flex>
       </nav>
     </Layout.Header>
   );

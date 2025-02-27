@@ -2,6 +2,8 @@ import { getListProduct } from "@/server/product";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useProductsContext } from "../../../contexts/productsContext";
 
+const DEFAULT_LIMIT = 9;
+
 export const useProduct = () => {
   const { filter } = useProductsContext();
 
@@ -16,7 +18,7 @@ export const useProduct = () => {
   } = useInfiniteQuery({
     queryKey: ["getListProduct", JSON.stringify(filter)],
     queryFn: ({ pageParam = 0 }: { pageParam: number }) =>
-      getListProduct({ offset: pageParam, limit: 10, ...filter }),
+      getListProduct({ offset: pageParam, limit: DEFAULT_LIMIT, ...filter }),
     initialPageParam: 0,
     getNextPageParam: (lastPage) => {
       return lastPage.hasMore ? lastPage.nextOffset : undefined;

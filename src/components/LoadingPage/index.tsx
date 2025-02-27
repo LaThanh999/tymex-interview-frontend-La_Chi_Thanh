@@ -7,7 +7,7 @@ const LoadingPage = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1200);
+    }, 800);
   }, []);
 
   if (!loading) return null;
