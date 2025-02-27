@@ -5,3 +5,9 @@ function MarketplacePage() {
 }
 
 export default MarketplacePage;
+
+export async function getStaticProps() {
+  return {
+    props: {},
+  };
+}

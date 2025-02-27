@@ -1,0 +1,65 @@
+.container-filter {
+  :global {
+    .ant-slider {
+      .ant-slider-rail {
+        background-color: #3a3841 !important;
+      }
+
+      .ant-slider-track {
+        background-image: var(--primary-bg) !important;
+      }
+
+      .ant-slider-mark {
+        top: 20px;
+
+        .ant-slider-mark-text {
+          color: #d6d6d6 !important;
+          font-weight: 500 !important;
+          font-size: 16px;
+          width: 50%;
+
+          &:first-child {
+            text-align: left;
+            transform: translateX(0) !important;
+          }
+
+          &:last-child {
+            text-align: right;
+            transform: translateX(-100%) !important;
+          }
+        }
+      }
+    }
+
+    .ant-form-item {
+      &-label {
+        label {
+          color: #89888b;
+          font-weight: 600;
+          font-size: 16px;
+          text-transform: uppercase;
+        }
+      }
+
+      &:first-child {
+        margin-bottom: 40px;
+      }
+    }
+
+    .action-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+
+      .ant-btn {
+        width: 120px;
+        
+        .anticon-close-circle {
+          color: #fbc625;
+        }
+      }
+    }
+  }
+}
