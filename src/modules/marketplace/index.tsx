@@ -6,28 +6,31 @@ import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { TagCategories } from "./tag-categories";
 import styles from "./style.module.scss";
 import { ProductList } from "./product-list";
+import { ProductsProvider } from "./context";
 
 export const MarketPlaceModule = () => {
   const { isCollapsed } = useBreakpoint();
 
   return (
-    <article>
-      <BannerSection />
-      <div className={styles["container-product-list"]}>
-        {isCollapsed && <FilterMobile />}
+    <ProductsProvider>
+      <article>
+        <BannerSection />
+        <div className={styles["container-product-list"]}>
+          {isCollapsed && <FilterMobile />}
 
-        <Row gutter={16}>
-          {!isCollapsed && (
-            <Col xl={6}>
-              <Filter />
+          <Row gutter={16}>
+            {!isCollapsed && (
+              <Col xl={6}>
+                <Filter />
+              </Col>
+            )}
+            <Col xl={18} lg={24} className={styles["product-list-inner"]}>
+              <TagCategories />
+              <ProductList />
             </Col>
-          )}
-          <Col xl={18} lg={24} className={styles["product-list-inner"]}>
-            <TagCategories />
-            <ProductList />
-          </Col>
-        </Row>
-      </div>
-    </article>
+          </Row>
+        </div>
+      </article>
+    </ProductsProvider>
   );
 };

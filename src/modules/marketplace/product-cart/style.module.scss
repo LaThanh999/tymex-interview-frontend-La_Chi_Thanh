@@ -1,14 +1,13 @@
 .card-product-container {
+  background: #3a384199 !important;
+  border-radius: 10px;
+  border: none !important;
+  padding: 16px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
   :global {
-    background: #3a384199 !important;
-    border-radius: 10px;
-    border: none !important;
-    padding: 16px !important;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    position: relative;
-
     .ant-card-body {
       padding: 0 !important;
     }

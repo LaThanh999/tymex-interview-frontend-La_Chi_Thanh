@@ -4,13 +4,18 @@ import type { AppProps } from "next/app";
 import { ConfigProvider } from "antd";
 import theme from "../theme/themeConfig";
 import { DefaultLayout } from "@/layout";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <ConfigProvider theme={theme}>
-      <DefaultLayout>
-        <Component {...pageProps} />
-      </DefaultLayout>
+      <QueryClientProvider client={queryClient}>
+        <DefaultLayout>
+          <Component {...pageProps} />
+        </DefaultLayout>
+      </QueryClientProvider>
     </ConfigProvider>
   );
 }

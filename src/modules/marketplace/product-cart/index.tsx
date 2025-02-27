@@ -4,6 +4,8 @@ import { IHeart } from "@/icons/IHeart";
 import { formatPrice } from "@/helpers/common";
 import styles from "./style.module.scss";
 import { IOnline } from "@/icons/IOnline";
+import { TProduct } from "@/types/product";
+import { IOffline } from "@/icons/IOffline";
 
 const IconEthereum = () => (
   <Image
@@ -15,7 +17,7 @@ const IconEthereum = () => (
   />
 );
 
-export const ProductCart = () => {
+export const ProductCart = ({ data }: { data: TProduct }) => {
   return (
     <>
       <Card className={styles["card-product-container"]}>
@@ -35,7 +37,11 @@ export const ProductCart = () => {
             }}
           >
             <Image
-              src="/assets/images/bg-item-1.png"
+              src={
+                data.backgroundItem
+                  ? `/assets/images/${data.backgroundItem}.png`
+                  : `/assets/images/bg-item-1.png`
+              }
               fill
               alt="item-nft"
               quality={100}
@@ -51,7 +57,11 @@ export const ProductCart = () => {
               }}
             >
               <Image
-                src="/assets/images/item-1.png"
+                src={
+                  data.item
+                    ? `/assets/images/${data.item}.png`
+                    : `/assets/images/item-1.png`
+                }
                 fill
                 alt="item-nft"
                 quality={100}
@@ -72,7 +82,9 @@ export const ProductCart = () => {
           <IHeart />
         </div>
 
-        <Tag className={styles["tag-product-category"]}>Legend</Tag>
+        {data.category && (
+          <Tag className={styles["tag-product-category"]}>{data.category}</Tag>
+        )}
 
         <Flex
           className={styles["product-info"]}
@@ -81,11 +93,11 @@ export const ProductCart = () => {
           gap={12}
         >
           <Typography.Text ellipsis className={styles["product-name"]}>
-            The DJ
+            {data?.nameItem}
           </Typography.Text>
           <Flex className={styles["product-price"]} gap={8} align="center">
             <IconEthereum />
-            <span>{formatPrice(200)}</span>
+            <span>{formatPrice(data.price)}</span>
           </Flex>
         </Flex>
         <Flex align="center" gap={12}>
@@ -95,14 +107,14 @@ export const ProductCart = () => {
               <Avatar
                 className={styles["creator-avatar-status"]}
                 size={12}
-                icon={<IOnline />}
+                icon={data.statusOnline ? <IOnline /> : <IOffline />}
               />
             }
           >
             <Avatar src={"/assets/images/avt-creator.png"} size={32} />
           </Badge>
           <Typography.Text ellipsis className={styles["creator-name"]}>
-            The DJ
+            {data.nameCreator}
           </Typography.Text>
         </Flex>
       </Card>
