@@ -1,0 +1,23 @@
+.product-categories-container {
+  :global {
+    .ant-btn {
+      border: none;
+      color: #fff !important;
+
+      &-lg {
+        padding: 10px 16px;
+      }
+
+      &-default {
+        background: linear-gradient(
+          91.47deg,
+          rgb(218 69 143 / 40%) -6%,
+          rgb(218 52 221 / 40%) 113.05%
+        ) !important;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}

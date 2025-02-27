@@ -1,9 +1,11 @@
 import { Col, Row } from "antd";
 import { BannerSection } from "./banner-section";
 import { Filter } from "./filter";
-import styles from "./style.module.scss";
 import { FilterMobile } from "./filter-mobile";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
+import { TagCategories } from "./tag-categories";
+import styles from "./style.module.scss";
+import { ProductList } from "./product-list";
 
 export const MarketPlaceModule = () => {
   const { isCollapsed } = useBreakpoint();
@@ -20,7 +22,10 @@ export const MarketPlaceModule = () => {
               <Filter />
             </Col>
           )}
-          <Col xl={18} lg={24}></Col>
+          <Col xl={18} lg={24} className={styles["product-list-inner"]}>
+            <TagCategories />
+            <ProductList />
+          </Col>
         </Row>
       </div>
     </article>
