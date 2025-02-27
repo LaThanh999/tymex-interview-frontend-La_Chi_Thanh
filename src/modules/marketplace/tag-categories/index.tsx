@@ -2,7 +2,7 @@ import { Flex } from "antd";
 import styles from "./style.module.scss";
 import { Button } from "@/components/Button";
 import { ProductCategory } from "@/enums/filter";
-import { useProductsContext } from "../context";
+import { useProductsContext } from "../../../contexts/productsContext";
 import debounce from "lodash.debounce";
 import { useQueryParams } from "@/hooks/useQueryParams";
 
@@ -31,7 +31,7 @@ export const TagCategories = () => {
       : [value];
 
     setFilter({ ...filter, categories: newValues });
-    setParams({ categories: newValues });
+    setParams({ categories: newValues }, { replace: false });
   }, 300);
 
   return (

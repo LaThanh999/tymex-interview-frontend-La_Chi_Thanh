@@ -21,3 +21,13 @@ body {
     box-shadow: 0 0 50px 0 #bb4bff52;
   }
 }
+
+#nprogress .bar {
+  background: #da34dd !important;
+  height: 4px !important;
+  z-index: 120000000 !important;
+}
+
+#nprogress .spinner {
+  display: none !important;
+}

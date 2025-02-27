@@ -29,13 +29,7 @@ export const ProductCart = ({ data }: { data: TProduct }) => {
             overflow: "hidden",
           }}
         >
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              objectFit: "cover",
-            }}
-          >
+          <div className={styles["image-product"]}>
             <Image
               src={
                 data.backgroundItem
@@ -46,16 +40,7 @@ export const ProductCart = ({ data }: { data: TProduct }) => {
               alt="item-nft"
               quality={100}
             />
-            <div
-              style={{
-                width: "72%",
-                height: "72%",
-                position: "absolute",
-                bottom: 0,
-                left: "50%",
-                transform: "translateX(-50%)",
-              }}
-            >
+            <div className={styles["image-product-item"]}>
               <Image
                 src={
                   data.item
@@ -72,13 +57,7 @@ export const ProductCart = ({ data }: { data: TProduct }) => {
             </div>
           </div>
         </div>
-        <div
-          style={{
-            position: "absolute",
-            top: 30,
-            right: 30,
-          }}
-        >
+        <div className={styles["icon-heart"]}>
           <IHeart />
         </div>
 

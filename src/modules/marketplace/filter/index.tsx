@@ -11,7 +11,7 @@ import { Button } from "@/components/Button";
 import { formatPrice } from "@/helpers/common";
 import themeFilter from "@/theme/themeFilterConfig";
 import { TFilterProduct } from "@/types/product";
-import { useProductsContext } from "../context";
+import { useProductsContext } from "../../../contexts/productsContext";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { useQueryParams } from "@/hooks/useQueryParams";
 import { useEffect } from "react";
@@ -53,7 +53,7 @@ export const Filter = () => {
         sortPrice: value.sortPrice,
         categories: value.categories,
       },
-      { replace: true }
+      { replace: false }
     );
   };
 

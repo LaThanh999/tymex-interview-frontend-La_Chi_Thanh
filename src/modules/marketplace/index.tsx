@@ -6,7 +6,7 @@ import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { TagCategories } from "./tag-categories";
 import styles from "./style.module.scss";
 import { ProductList } from "./product-list";
-import { ProductsProvider } from "./context";
+import { ProductsProvider } from "../../contexts/productsContext";
 
 export const MarketPlaceModule = () => {
   const { isCollapsed } = useBreakpoint();

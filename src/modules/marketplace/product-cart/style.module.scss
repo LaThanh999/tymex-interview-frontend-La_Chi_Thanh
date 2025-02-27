@@ -13,6 +13,27 @@
     }
   }
 
+  .image-product {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+  }
+
+  .image-product-item {
+    width: 72%;
+    height: 72%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .icon-heart {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+
   .tag-product-category {
     position: absolute;
     top: 24px;

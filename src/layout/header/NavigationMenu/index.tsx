@@ -9,7 +9,7 @@ export const NavigationMenu = ({
   mode?: "horizontal" | "vertical";
 }) => {
   const router = useRouter();
-  const { pathname } = router;
+  const { pathname, push } = router;
 
   return (
     <>
@@ -28,6 +28,9 @@ export const NavigationMenu = ({
         ].map((navigationItem) => ({
           key: navigationItem.path,
           label: navigationItem.label,
+          onClick: () => {
+            push(navigationItem.path);
+          },
         }))}
       />
     </>

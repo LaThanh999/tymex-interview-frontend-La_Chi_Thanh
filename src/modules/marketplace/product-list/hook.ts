@@ -1,6 +1,6 @@
 import { getListProduct } from "@/server/product";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { useProductsContext } from "../context";
+import { useProductsContext } from "../../../contexts/productsContext";
 
 export const useProduct = () => {
   const { filter } = useProductsContext();
