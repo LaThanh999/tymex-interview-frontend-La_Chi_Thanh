@@ -1,27 +1,3 @@
-@mixin scrollbar($size: 6px, $thumb-color: #ffcc21, $track-color: #777777) {
-
-  @document url-prefix() {
-    scrollbar-width: thin;
-    scrollbar-color: $track-color transparent;
-  }
-
-  &::-webkit-scrollbar {
-    width: $size;
-    height: $size;
-  }
-
-  &::-webkit-scrollbar-track {
-    background-color: $track-color;
-    background-clip: padding-box;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-clip: padding-box;
-    background-color: $thumb-color;
-  }
-}
-
 @mixin gradient-text {
   background-image: var(--primary-bg);
   color: transparent;

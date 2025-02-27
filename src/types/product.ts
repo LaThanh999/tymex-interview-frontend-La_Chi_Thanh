@@ -15,10 +15,10 @@ export type TFilterProduct = {
   tier?: string;
   theme?: string;
   keyword?: string;
-  primarySortField?: string;
-  primarySortOrder?: string;
-  secondarySortField?: string;
-  secondarySortOrder?: string;
   minPrice?: number;
   maxPrice?: number;
+  priceRange?: number[];
+  sortTime?: string;
+  sortPrice?: string;
+  categories?: string[];
 };

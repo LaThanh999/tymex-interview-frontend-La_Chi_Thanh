@@ -31,6 +31,11 @@
       }
     }
 
+    .ant-input-outlined {
+      padding-top: 6px !important;
+      padding-bottom: 6px !important;
+    }
+
     .ant-form-item {
       &-label {
         label {
@@ -46,6 +51,23 @@
       }
     }
 
+    .ant-select-multiple {
+      .ant-select-selection-item {
+        background: linear-gradient(
+          91.47deg,
+          rgb(218 69 143 / 40%) -6%,
+          rgb(218 52 221 / 40%) 113.05%
+        ) !important;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      .anticon-close {
+        color: #fff !important;
+      }
+    }
+
     .action-buttons {
       display: flex;
       align-items: center;
@@ -55,7 +77,7 @@
 
       .ant-btn {
         width: 120px;
-        
+
         .anticon-close-circle {
           color: #fbc625;
         }

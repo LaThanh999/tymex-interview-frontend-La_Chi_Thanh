@@ -1,4 +1,4 @@
-import { Flex, List } from "antd";
+import { Empty, Flex, List, Typography } from "antd";
 import { ProductCart } from "../product-cart";
 import { useProduct } from "./hook";
 import { Button } from "@/components/Button";
@@ -9,7 +9,7 @@ export const ProductList = () => {
 
   return (
     <>
-      <div>
+      <div className={styles['product-list-container']} >
         <List
           grid={{
             gutter: 16,
@@ -28,6 +28,16 @@ export const ProductList = () => {
               <ProductCart data={product} />
             </List.Item>
           )}
+          locale={{
+            emptyText: (
+              <Empty
+                image={Empty.PRESENTED_IMAGE_SIMPLE}
+                description={
+                  <Typography.Title level={4}>No items found</Typography.Title>
+                }
+              />
+            ),
+          }}
         />
         {hasMore && (
           <Flex

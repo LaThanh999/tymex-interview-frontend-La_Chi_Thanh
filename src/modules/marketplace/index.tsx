@@ -25,7 +25,7 @@ export const MarketPlaceModule = () => {
               </Col>
             )}
             <Col xl={18} lg={24} className={styles["product-list-inner"]}>
-              <TagCategories />
+              {!isCollapsed && <TagCategories />}
               <ProductList />
             </Col>
           </Row>

@@ -6,20 +6,18 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<unknown>
 ) {
-  const { method, query } = req;
+  const { method, body } = req;
   const {
     offset = "0",
     limit = "10",
     tier,
     theme,
     keyword,
-    primarySortField = "created",
-    primarySortOrder = "desc",
-    secondarySortField = "price",
-    secondarySortOrder = "asc",
-    minPrice = 0,
-    maxPrice = 1000,
-  } = query;
+    sortTime = "desc",
+    sortPrice = "asc",
+    minPrice,
+    maxPrice,
+  } = body;
 
   const filePath = path.join(
     process.cwd(),
@@ -35,7 +33,7 @@ export default function handler(
   const repeatedData = Array.from({ length: 5 }).flatMap(() => data);
 
   switch (method) {
-    case "GET":
+    case "POST":
       try {
         const offsetNum = Math.max(parseInt(offset as string, 10), 0);
         const limitNum = Math.max(parseInt(limit as string, 10), 1);
@@ -74,32 +72,27 @@ export default function handler(
         }
 
         filteredData.sort((a, b) => {
-          let primaryComparison = 0;
-          if (primarySortField === "price") {
-            primaryComparison =
-              primarySortOrder === "asc"
-                ? a.price - b.price
-                : b.price - a.price;
-          } else if (primarySortField === "created") {
+          let comparison = 0;
+
+          if (sortTime === "asc") {
             const dateA = new Date(a.created).getTime();
             const dateB = new Date(b.created).getTime();
-            primaryComparison =
-              primarySortOrder === "asc" ? dateA - dateB : dateB - dateA;
-          }
-
-          if (primaryComparison !== 0) return primaryComparison;
-
-          if (secondarySortField === "price") {
-            return secondarySortOrder === "asc"
-              ? a.price - b.price
-              : b.price - a.price;
-          } else if (secondarySortField === "created") {
+            comparison = dateA - dateB;
+          } else if (sortTime === "desc") {
             const dateA = new Date(a.created).getTime();
             const dateB = new Date(b.created).getTime();
-            return secondarySortOrder === "asc" ? dateA - dateB : dateB - dateA;
+            comparison = dateB - dateA;
           }
 
-          return 0;
+          if (comparison === 0) {
+            if (sortPrice === "asc") {
+              comparison = a.price - b.price;
+            } else if (sortPrice === "desc") {
+              comparison = b.price - a.price;
+            }
+          }
+
+          return comparison;
         });
 
         const paginatedData = filteredData.slice(

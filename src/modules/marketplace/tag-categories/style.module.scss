@@ -1,8 +1,14 @@
+@import "../../../styles//variables.scss";
+
 .product-categories-container {
   :global {
     .ant-btn {
       border: none;
       color: #fff !important;
+
+      span {
+        font-size: 16px !important;
+      }
 
       &-lg {
         padding: 10px 16px;
