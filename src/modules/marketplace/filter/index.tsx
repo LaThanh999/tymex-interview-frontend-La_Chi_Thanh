@@ -24,7 +24,7 @@ const optionsCategory = Object.values(ProductCategory).map((item) => ({
 export const Filter = () => {
   const [form] = Form.useForm<TFilterProduct>();
 
-  const { getParams, setParams } = useQueryParams();
+  const { getParams, setParams, removeParams } = useQueryParams();
 
   const params = getParams([
     "keyword",
@@ -55,6 +55,20 @@ export const Filter = () => {
       },
       { replace: true }
     );
+  };
+
+  const resetFilter = () => {
+    form.resetFields();
+    setFilter({});
+    removeParams([
+      "keyword",
+      "priceRange",
+      "tier",
+      "theme",
+      "sortTime",
+      "sortPrice",
+      ...(isCollapsed ? ["categories"] : []),
+    ]);
   };
 
   useEffect(() => {
@@ -134,7 +148,11 @@ export const Filter = () => {
         )}
 
         <div className="action-buttons">
-          <Button type="text" icon={<CloseCircleFilled />} onClick={() => {}}>
+          <Button
+            type="text"
+            icon={<CloseCircleFilled />}
+            onClick={resetFilter}
+          >
             Reset filter
           </Button>
           <Button htmlType="submit" type="primary">
