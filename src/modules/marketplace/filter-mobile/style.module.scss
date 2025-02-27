@@ -1,0 +1,39 @@
+.filter-mobile-container {
+  :global {
+    .ant-drawer-content-wrapper {
+      max-width: 400px !important;
+    }
+
+    .ant-drawer-content {
+      background: #17161a !important;
+
+      .ant-drawer-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 32px;
+      }
+
+      .ant-drawer-header {
+        padding: 32px;
+
+        &-title {
+          flex-direction: row-reverse;
+
+          h3 {
+            margin: 0;
+          }
+        }
+      }
+
+      .ant-drawer-close {
+        margin: 0;
+        color: #fff !important;
+      }
+    }
+  }
+}
+
+.filter-mobile-button {
+  padding: 16px !important;
+}
