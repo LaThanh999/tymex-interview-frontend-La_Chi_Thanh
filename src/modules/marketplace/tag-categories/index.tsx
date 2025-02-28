@@ -16,7 +16,8 @@ export const TagCategories = () => {
 
   const { setParams, removeParams } = useQueryParams();
 
-  const valuesCateogry = filter.categories;
+  const valuesCateogry = filter.categories || [];
+  console.log("valuesCateogry", valuesCateogry);
 
   const onChangeCategory = debounce((value: string) => {
     if (value === "") {

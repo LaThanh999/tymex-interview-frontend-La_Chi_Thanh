@@ -14,7 +14,7 @@ import { TFilterProduct } from "@/types/product";
 import { useProductsContext } from "../../../contexts/productsContext";
 import { useBreakpoint } from "@/hooks/useBreakpoint";
 import { useQueryParams } from "@/hooks/useQueryParams";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const optionsCategory = Object.values(ProductCategory).map((item) => ({
   label: item === "" ? "All" : item,
@@ -23,6 +23,8 @@ const optionsCategory = Object.values(ProductCategory).map((item) => ({
 
 export const Filter = () => {
   const [form] = Form.useForm<TFilterProduct>();
+
+  const [updateFilter, setUpdateFilter] = useState(false);
 
   const { getParams, setParams, removeParams } = useQueryParams();
 
@@ -38,10 +40,14 @@ export const Filter = () => {
 
   const { isCollapsed } = useBreakpoint();
 
-  const { setFilter } = useProductsContext();
+  const { filter, setFilter } = useProductsContext();
 
   const onSubmit = (value: TFilterProduct) => {
-    setFilter(value);
+    setUpdateFilter(true);
+    setFilter({
+      ...value,
+      categories: filter.categories || [],
+    });
     setParams(
       {
         ...params,
@@ -51,7 +57,7 @@ export const Filter = () => {
         theme: value.theme,
         sortTime: value.sortTime,
         sortPrice: value.sortPrice,
-        categories: value.categories,
+        ...(isCollapsed && { categories: value.categories }),
       },
       { replace: false }
     );
@@ -67,11 +73,12 @@ export const Filter = () => {
       "theme",
       "sortTime",
       "sortPrice",
-      ...(isCollapsed ? ["categories"] : []),
+      ...(isCollapsed ? ["categories"] : []).flat(),
     ]);
   };
 
   useEffect(() => {
+    if (updateFilter) return;
     form.setFieldsValue(params);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params]);

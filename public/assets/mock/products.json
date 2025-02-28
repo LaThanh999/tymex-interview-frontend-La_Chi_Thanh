@@ -79,7 +79,7 @@
       "item": "item-3",
       "category": "Mythic",
       "nameItem": "Mythic Silver Sword",
-      "price": 275,
+      "price": 175,
       "nameCreator": "Ethan Foster",
       "statusOnline": true
     },
@@ -187,7 +187,7 @@
       "item": "item-4",
       "category": "Mythic",
       "nameItem": "Mythic Golden Sword",
-      "price": 310,
+      "price": 160,
       "nameCreator": "Noah Parker",
       "statusOnline": false
     },

@@ -48,3 +48,5 @@ export const NAVIGATION_ITEMS = {
     label: "Privacy",
   },
 };
+
+export const MAX_PRICE = 200;

@@ -71,9 +71,7 @@ export const ProductCart = ({ data }: { data: TProduct }) => {
           justify="space-between"
           gap={12}
         >
-          <Typography.Text ellipsis className={styles["product-name"]}>
-            {data?.nameItem}
-          </Typography.Text>
+          <div className={styles["product-name"]}>{data?.nameItem}</div>
           <Flex className={styles["product-price"]} gap={8} align="center">
             <IconEthereum />
             <span>{formatPrice(data.price)}</span>
