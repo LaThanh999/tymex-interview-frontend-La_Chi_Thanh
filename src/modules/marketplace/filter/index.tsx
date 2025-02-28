@@ -142,7 +142,7 @@ export const Filter = () => {
           />
         </Form.Item>
         {isCollapsed && (
-          <Form.Item name="categories" label="Categoris">
+          <Form.Item name="categories" label="Categories">
             <Select
               mode="multiple"
               options={optionsCategory.map(({ label, value }) => ({
