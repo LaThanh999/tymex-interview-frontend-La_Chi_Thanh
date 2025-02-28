@@ -16,7 +16,7 @@ export const ProductList = () => {
           <List
             grid={{
               gutter: 16,
-              xs: 1,
+              xs: 2,
               sm: 2,
               md: 2,
               lg: 3,

@@ -6,9 +6,3 @@ function MarketplacePage() {
 }
 
 export default withPageLoading(MarketplacePage);
-
-export async function getStaticProps() {
-  return {
-    props: {},
-  };
-}

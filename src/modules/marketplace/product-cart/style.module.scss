@@ -1,3 +1,5 @@
+@import "../../../styles//variables.scss";
+
 .card-product-container {
   background: #3a384199 !important;
   border-radius: 10px;
@@ -86,5 +88,42 @@
       top: unset;
       transform: unset;
     }
+  }
+
+  @media (max-width: $breakpoint-sm) {
+    padding: 8px !important;
+
+    .tag-product-category {
+      top: 12px;
+      left: 12px;
+      font-size: 10px;
+    }
+
+    .icon-heart {
+      top: 16px;
+      right: 16px;
+    }
+
+    .product-info {
+      margin-top: 14px;
+      margin-bottom: 6px;
+  
+      .product-name {
+        font-size: 12px;
+      }
+  
+      .product-price {
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 20px;
+        flex: 0 0 max-content;
+      }
+    }
+  
+    .creator-name {
+      font-size: 12px;
+      font-weight: 500;
+    }
+  
   }
 }
