@@ -20,8 +20,6 @@ export default function handler(
     minPrice = 0,
     maxPrice = MAX_PRICE,
   } = body;
-  
-  console.log('bodybody', body);
 
   const filePath = path.join(
     process.cwd(),
@@ -34,7 +32,7 @@ export default function handler(
   const fileData = fs.readFileSync(filePath, "utf8");
   const data = JSON.parse(fileData);
 
-  const repeatedData = Array.from({ length: 5 }).flatMap(() => data); // Giả lập nhiều dữ liệu
+  const repeatedData = Array.from({ length: 5 }).flatMap(() => data);
 
   switch (method) {
     case "POST":
@@ -44,7 +42,7 @@ export default function handler(
 
         let filteredData = repeatedData;
 
-        // Filter theo tier
+        // Filter with tier
         if (tier) {
           filteredData = filteredData.filter(
             (item) =>
@@ -52,7 +50,7 @@ export default function handler(
           );
         }
 
-        // Filter theo theme
+        // Filter with theme
         if (theme) {
           filteredData = filteredData.filter(
             (item) =>
@@ -60,7 +58,7 @@ export default function handler(
           );
         }
 
-        // Filter theo keyword (search theo tên item hoặc tên creator)
+        // Filter with keyword (search with name item or name creator)
         if (keyword) {
           const lowerCaseKeyword = (keyword as string).toLowerCase();
           filteredData = filteredData.filter(
@@ -70,15 +68,14 @@ export default function handler(
           );
         }
 
-        // Filter theo categories (mảng categories)
-        console.log("categories", categories);
+        // Filter with categories (mảng categories)
         if (!!categories && categories?.length > 0 && categories[0] !== "") {
           filteredData = filteredData.filter((item) =>
             categories.includes(item.category)
           );
         }
 
-        // Filter theo minPrice và maxPrice
+        // Filter with minPrice and maxPrice
         if (minPrice) {
           const minPriceNum = parseFloat(minPrice as string);
           filteredData = filteredData.filter(
@@ -93,11 +90,10 @@ export default function handler(
           );
         }
 
-        // Sắp xếp theo thời gian và giá
         filteredData.sort((a, b) => {
           let comparison = 0;
 
-          // Sắp xếp theo thời gian
+          // Sort with time
           const dateA = new Date(a.created).getTime();
           const dateB = new Date(b.created).getTime();
 
@@ -108,13 +104,13 @@ export default function handler(
           }
 
           const priceA = parseFloat(a.price);
-            const priceB = parseFloat(b.price);
+          const priceB = parseFloat(b.price);
 
-            if (sortPrice === "asc") {
-              comparison = priceA - priceB;
-            } else if (sortPrice === "desc") {
-              comparison = priceB - priceA;
-            }
+          if (sortPrice === "asc") {
+            comparison = priceA - priceB;
+          } else if (sortPrice === "desc") {
+            comparison = priceB - priceA;
+          }
 
           return comparison;
         });

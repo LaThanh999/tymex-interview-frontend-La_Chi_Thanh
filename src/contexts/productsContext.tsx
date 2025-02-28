@@ -64,6 +64,12 @@ export const ProductsProvider = ({
         theme: params.theme as string,
       });
     }
+    if (!filter.priceRange && !!params.priceRange) {
+      setFilter({
+        ...filter,
+        priceRange: params.priceRange as unknown as [number, number],
+      });
+    }
     if (!filter.sortTime && !!params.sortTime) {
       setFilter({
         ...filter,

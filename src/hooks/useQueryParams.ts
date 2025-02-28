@@ -8,7 +8,6 @@ interface ParamValues {
 export const useQueryParams = () => {
   const searchParams = useSearchParams();
 
-  // Lấy params từ URL
   const getParams = useCallback(
     (keys: string[]) => {
       const result: ParamValues = {};
@@ -21,14 +20,12 @@ export const useQueryParams = () => {
     [searchParams]
   );
 
-  // Cập nhật params mà không reload
   const setParams = useCallback(
     (params: ParamValues, options?: { replace?: boolean }) => {
       const current = new URLSearchParams(searchParams.toString());
 
-      // Cập nhật hoặc thêm params
       Object.entries(params).forEach(([key, value]) => {
-        current.delete(key); // Xóa giá trị cũ
+        current.delete(key);
         if (Array.isArray(value)) {
           value.forEach((val) => current.append(key, val));
         } else if (value !== undefined && value !== null) {
@@ -41,7 +38,6 @@ export const useQueryParams = () => {
         searchString ? `?${searchString}` : ""
       }`;
 
-      // Dùng history API thay vì router
       if (options?.replace) {
         window.history.replaceState(null, "", newUrl);
       } else {
@@ -51,7 +47,6 @@ export const useQueryParams = () => {
     [searchParams]
   );
 
-  // Xóa params mà không reload
   const removeParams = useCallback(
     (keys: string[]) => {
       const current = new URLSearchParams(searchParams.toString());

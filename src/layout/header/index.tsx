@@ -15,12 +15,14 @@ export const HeaderLayout = () => {
       <nav className={styles["container-header-inner"]}>
         {isCollapsed ? <MobileNavigation /> : <NavigationMenu />}
 
-        <Button type="primary" size="large">
-          Connect Wallet
-        </Button>
-        <Flex className={styles["region-menu"]} align="center" gap={8}>
-          <IGlobe />
-          <ICaretDown />
+        <Flex gap={12}>
+          <Button type="primary" size="large">
+            Connect Wallet
+          </Button>
+          <Flex className={styles["region-menu"]} align="center" gap={8}>
+            <IGlobe />
+            <ICaretDown />
+          </Flex>
         </Flex>
       </nav>
     </Layout.Header>
