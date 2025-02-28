@@ -18,6 +18,7 @@ export const DefaultLayout = ({ children }: { children: React.ReactNode }) => {
           width={100}
           height={100}
           alt="footer-frame"
+          priority
         />
         <FooterLayout />
       </Layout>

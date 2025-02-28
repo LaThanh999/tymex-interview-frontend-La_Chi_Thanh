@@ -2,7 +2,7 @@ import { getListProduct } from "@/server/product";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useProductsContext } from "../../../contexts/productsContext";
 
-const DEFAULT_LIMIT = 9;
+const DEFAULT_LIMIT = 12;
 
 export const useProduct = () => {
   const { filter } = useProductsContext();

@@ -1,7 +1,7 @@
-import type { NextConfig } from "next";
-import path from "path";
+/** @type {import('next').NextConfig} */
+const path = require("path");
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   reactStrictMode: true,
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
@@ -15,8 +15,9 @@ const nextConfig: NextConfig = {
     "rc-picker",
     "rc-notification",
     "rc-tooltip",
-    "rc-input"
+    "rc-input",
+    "rc-tree", // Thêm rc-tree vào đây
   ],
 };
 
-export default nextConfig;
+module.exports = nextConfig;

@@ -7,13 +7,14 @@ import { IOnline } from "@/icons/IOnline";
 import { TProduct } from "@/types/product";
 import { IOffline } from "@/icons/IOffline";
 
-const IconEthereum = () => (
+export const IconEthereum = () => (
   <Image
     src="/assets/icons/ethereum.svg"
     alt="icon-ethereum"
     quality={100}
     width={8}
     height={12}
+    priority
   />
 );
 
@@ -39,9 +40,11 @@ export const ProductCart = ({ data }: { data: TProduct }) => {
               fill
               alt="item-nft"
               quality={100}
+              priority
             />
             <div className={styles["image-product-item"]}>
               <Image
+                priority
                 src={
                   data.item
                     ? `/assets/images/${data.item}.png`

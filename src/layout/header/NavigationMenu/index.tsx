@@ -29,6 +29,7 @@ export const NavigationMenu = ({
           key: navigationItem.path,
           label: navigationItem.label,
           onClick: () => {
+            if (navigationItem.path === pathname) return;
             push(navigationItem.path);
           },
         }))}

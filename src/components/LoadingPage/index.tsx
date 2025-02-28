@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./style.module.scss";
+import { Spin } from "antd";
 
 const LoadingPage = () => {
   const [loading, setLoading] = useState(true);
@@ -7,7 +8,7 @@ const LoadingPage = () => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1200);
+    }, 800);
   }, []);
 
   if (!loading) return null;
@@ -15,8 +16,7 @@ const LoadingPage = () => {
   return (
     <div className={styles.loadingOverlay}>
       <div className={styles.spinnerContainer}>
-        <div className={styles.spinner}></div>
-        <div className={styles.pulse}></div>
+        <Spin size="large" />
       </div>
     </div>
   );
